@@ -1,6 +1,6 @@
 const batman = document.querySelector('.batman');
+const speechBubble = document.querySelector('.speech-bubble');
 
 batman.addEventListener('click', ()=>{
-  console.log('I am Batman.');
-  console.log('I work alone.');
+  speechBubble.classList.toggle('hidden');
 });
