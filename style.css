@@ -6,6 +6,15 @@
   box-sizing: border-box;
 }
 
+:root {
+  --glow-magenta: #ff00ff;
+  --glow-cyan: #00ffff;
+  --r: #ff2244;
+  --g: #00ffaa;
+  --b: #2244ff;
+  --gap: 1.5px;
+}
+
 .hidden {
   display: none;
 }
@@ -42,4 +51,48 @@
   font-family: "Silkscreen", sans-serif;
   font-weight: 400; /* 700 or 400 */
   font-style: normal;
+}
+
+.glitch {
+  animation: glitch-shadow 1.6s infinite steps(1);
+  image-rendering: pixelated;
+}
+
+@keyframes glitch-shadow {
+  0% { filter: drop-shadow(var(--gap) 0px 0 var(--r))
+               drop-shadow(-var(--gap) 0px 0 var(--b))
+               drop-shadow(0 var(--gap) 0 var(--g)); }
+
+  10% { filter: drop-shadow(-var(--gap) -2px 0 var(--b))
+                drop-shadow(var(--gap) 2px 0 var(--r))
+                drop-shadow(2px 0 0 var(--g)); }
+
+  20% { filter: drop-shadow(0 0 0 transparent); }
+
+  30% { filter: drop-shadow(calc(var(--gap)*2) 1px 0 var(--r))
+                drop-shadow(-2px -1px 0 var(--b))
+                drop-shadow(0 calc(var(--gap)*-1) 0 var(--g)); }
+
+  40% { filter: drop-shadow(0 0 0 transparent); }
+
+  50% { filter: drop-shadow(-var(--gap) var(--gap) 0 var(--g))
+                drop-shadow(var(--gap) -var(--gap) 0 var(--r))
+                drop-shadow(1px 2px 0 var(--b)); }
+
+  60% { filter: drop-shadow(3px 0 0 var(--b))
+                drop-shadow(-3px 0 0 var(--r))
+                drop-shadow(0 -2px 0 var(--g)); }
+
+  70% { filter: drop-shadow(0 0 0 transparent); }
+
+  80% { filter: drop-shadow(-2px -var(--gap) 0 var(--r))
+                drop-shadow(2px var(--gap) 0 var(--b))
+                drop-shadow(var(--gap) 0 0 var(--g)); }
+
+  90% { filter: drop-shadow(var(--gap) var(--gap) 0 var(--g))
+                drop-shadow(-var(--gap) 0 0 var(--r)); }
+
+  100% { filter: drop-shadow(var(--gap) 0px 0 var(--r))
+                 drop-shadow(-var(--gap) 0px 0 var(--b))
+                 drop-shadow(0 var(--gap) 0 var(--g)); }
 }
